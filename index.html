@@ -1,107 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Primary Meta Tags -->
+  <meta name="title" content="Patch Your Matcher: Correspondence-Aware Image-to-Image Translation Unlocks Cross-Modal Matching via Single-Modality Priors - Anton Frolov, Volker Rodehorst">
+  <meta name="description" content=
+  "Patch Your Matcher is a correspondence-aware image-to-image translation GAN that enables cross-modal image matching using pre-trained single-modality matchers without retraining.">
+  <meta name="keywords" content="cross-modal matching, image-to-image translation, GAN, geometric consistency, ELoFTR, LightGlue, RoMA, domain adaptation, 6 DoF pose estimation, computer vision, AI">
+  <meta name="author" content="Anton Frolov, Volker Rodehorst">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English"><!-- Open Graph / Facebook -->
+  <meta name="google-site-verification" content="peAHNQR-ktfGqNJfxcN5xUAp-GsO89QsydZuxGUJ1OQ" />
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Bauhaus-Universität Weimar">
+  <meta property="og:title" content="Patch Your Matcher: Correspondence-Aware Image-to-Image Translation Unlocks Cross-Modal Matching via Single-Modality Priors">
+  <meta property="og:description" content=
+  "Patch Your Matcher is a correspondence-aware image-to-image translation GAN that enables cross-modal image matching using pre-trained single-modality matchers without retraining.">
+  <meta property="og:url" content="https://xaf-cv.github.io/pym/">
+  <meta property="og:image" content="https://xaf-cv.github.io/pym/static/images/PYM_Poster_social_preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="600">
+  <meta property="og:image:alt" content="Patch Your Matcher: Correspondence-Aware Image-to-Image Translation Unlocks Cross-Modal Matching via Single-Modality Priors">
+  <meta property="article:published_time" content="2026-03-06T00:00:00.000Z">
+  <meta property="article:author" content="Anton Frolov">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="cross-modal matching">
+  <meta property="article:tag" content="image-to-image translation"><!-- Academic/Research Specific -->
+  <meta name="citation_title" content="Patch Your Matcher: Correspondence-Aware Image-to-Image Translation Unlocks Cross-Modal Matching via Single-Modality Priors">
+  <meta name="citation_author" content="Frolov, Anton">
+  <meta name="citation_author" content="Rodehorst, Volker">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="WACV 2026"><!--  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">-->
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"><!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <title>Patch Your Matcher: Correspondence-Aware Image-to-Image Translation Unlocks Cross-Modal Matching via Single-Modality Priors - Anton Frolov, Volker Rodehorst</title>
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/png" href="/static/images/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+  <link rel="shortcut icon" href="/static/images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="MyWebSite">
+  <link rel="manifest" href="/static/images/site.webmanifest"><!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css"><!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- Fallback for browsers that don't support preload -->
+   <noscript>
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"></noscript><!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><!-- Defer non-critical JavaScript -->
 
-    <!-- Primary Meta Tags -->
-    <meta name="title"
-          content="Patch Your Matcher: Correspondence-Aware Image-to-Image Translation Unlocks Cross-Modal Matching via Single-Modality Priors - Anton Frolov, Volker Rodehorst">
-    <meta name="description"
-          content="Patch Your Matcher is a correspondence-aware image-to-image translation GAN that enables cross-modal image matching using pre-trained single-modality matchers without retraining.">
-    <meta name="keywords"
-          content="cross-modal matching, image-to-image translation, GAN, geometric consistency, ELoFTR, LightGlue, RoMA, domain adaptation, 6 DoF pose estimation, computer vision, AI">
-    <meta name="author" content="Anton Frolov, Volker Rodehorst">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script><!-- Structured Data for Academic Papers -->
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="Bauhaus-Universität Weimar">
-    <meta property="og:title"
-          content="Patch Your Matcher: Correspondence-Aware Image-to-Image Translation Unlocks Cross-Modal Matching via Single-Modality Priors">
-    <meta property="og:description"
-          content="Patch Your Matcher is a correspondence-aware image-to-image translation GAN that enables cross-modal image matching using pre-trained single-modality matchers without retraining.">
-    <meta property="og:url" content="https://xaf-cv.github.io/pym/">
-    <meta property="og:image" content="https://xaf-cv.github.io/pym/static/images/PYM_Poster_social_preview.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="600">
-    <meta property="og:image:alt"
-          content="Patch Your Matcher: Correspondence-Aware Image-to-Image Translation Unlocks Cross-Modal Matching via Single-Modality Priors">
-    <meta property="article:published_time" content="2026-03-06T00:00:00.000Z">
-    <meta property="article:author" content="Anton Frolov">
-    <meta property="article:section" content="Research">
-    <meta property="article:tag" content="cross-modal matching">
-    <meta property="article:tag" content="image-to-image translation">
-
-    <!-- Academic/Research Specific -->
-    <meta name="citation_title"
-          content="Patch Your Matcher: Correspondence-Aware Image-to-Image Translation Unlocks Cross-Modal Matching via Single-Modality Priors">
-    <meta name="citation_author" content="Frolov, Anton">
-    <meta name="citation_author" content="Rodehorst, Volker">
-    <meta name="citation_publication_date" content="2026">
-    <meta name="citation_conference_title" content="WACV 2026">
-    <!--  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">-->
-
-    <!-- Additional SEO -->
-    <meta name="theme-color" content="#2563eb">
-    <meta name="msapplication-TileColor" content="#2563eb">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://ajax.googleapis.com">
-    <link rel="preconnect" href="https://documentcloud.adobe.com">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-
-    <title>Patch Your Matcher: Correspondence-Aware Image-to-Image Translation Unlocks Cross-Modal Matching via
-        Single-Modality Priors - Anton Frolov, Volker Rodehorst</title>
-
-    <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/png" href="/static/images/favicon-96x96.png" sizes="96x96"/>
-    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"/>
-    <link rel="shortcut icon" href="/static/images/favicon.ico"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png"/>
-    <meta name="apple-mobile-web-app-title" content="MyWebSite"/>
-    <link rel="manifest" href="/static/images/site.webmanifest"/>
-
-    <!-- Critical CSS - Load synchronously -->
-    <link rel="stylesheet" href="static/css/bulma.min.css">
-    <link rel="stylesheet" href="static/css/index.css">
-
-    <!-- Non-critical CSS - Load asynchronously -->
-    <link rel="preload" href="static/css/bulma-carousel.min.css" as="style"
-          onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="static/css/bulma-slider.min.css" as="style"
-          onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="static/css/fontawesome.all.min.css" as="style"
-          onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style"
-          onload="this.onload=null;this.rel='stylesheet'">
-
-    <!-- Fallback for browsers that don't support preload -->
-    <noscript>
-        <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-        <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-        <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-    </noscript>
-
-    <!-- Fonts - Optimized loading -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Defer non-critical JavaScript -->
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-    <script defer src="static/js/fontawesome.all.min.js"></script>
-    <script defer src="static/js/bulma-carousel.min.js"></script>
-    <script defer src="static/js/bulma-slider.min.js"></script>
-    <script defer src="static/js/index.js"></script>
-
-    <!-- Structured Data for Academic Papers -->
-    <script type="application/ld+json">
+  <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "ScholarlyArticle",
@@ -123,210 +93,117 @@
             },
             "url": "https://xaf-cv.github.io/pym/"
         }
-    </script>
+  </script>
 </head>
 <body>
-
-
-<!-- Scroll to Top Button -->
-<button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-</button>
-
-<main id="main-content">
+  <!-- Scroll to Top Button -->
+  <main id="main-content">
     <section class="hero">
-        <div class="hero-body">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered">
-                    <div class="column has-text-centered">
-                        <h1 class="title is-1 publication-title">
-                            Patch Your Matcher: Correspondence-Aware Image-to-Image Translation Unlocks Cross-Modal
-                            Matching via Single-Modality Priors
-                        </h1>
-                        <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=pRXScjgAAAAJ&amp;hl=en"
-                   target="_blank">Anton Frolov</a>,</span>
-                            <span class="author-block">
-                  <a href="https://scholar.google.com/citations?user=gHbZrk8AAAAJ&amp;hl=de&amp;oi=ao" target="_blank">Volker Rodehorst</a></span>
-                        </div>
-
-                        <div class="is-size-5 publication-authors">
-                            <span class="author-block">Bauhaus-Universität Weimar<br>WACV 2026</span>
-                        </div>
-
-                        <div class="column has-text-centered">
-                            <div class="publication-links">
-                      <span class="link-block">
-                        <a href="#" target="_blank"
-                           class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                                <span class="link-block">
-                      <a href="#" target="_blank"
-                         class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                                <span class="link-block">
-                    <a href="https://github.com/xaf-cv/patch-your-matcher" target="_blank"
-                       class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Teaser video-->
-    <section class="hero teaser">
+      <div class="hero-body">
         <div class="container is-max-desktop">
-            <div class="hero-body">
-                <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-                    <source src="static/videos/pym_poster_video_render_compact.mp4" type="video/mp4">
-                </video>
-                <h2 class="subtitle has-text-centered">
-                    Patch Your Matcher translates cross-modal inputs (infrared, depth, normals, events) into grayscale
-                    space, enabling strong geometric matching using frozen single-modality matchers such as ELoFTR,
-                    LightGlue and RoMA.
-                </h2>
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">Patch Your Matcher: Correspondence-Aware Image-to-Image Translation Unlocks Cross-Modal Matching via Single-Modality Priors</h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><a href="https://scholar.google.com/citations?user=pRXScjgAAAAJ&amp;hl=en" target="_blank">Anton Frolov</a>,</span> <span class="author-block"><a href=
+                "https://scholar.google.com/citations?user=gHbZrk8AAAAJ&amp;hl=de&amp;oi=ao" target="_blank">Volker Rodehorst</a></span>
+              </div>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">Bauhaus-Universität Weimar<br>
+                WACV 2026</span>
+              </div>
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block"><a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark"> <span>Paper</span></a></span> <span class="link-block"><a href="#"
+                  target="_blank" class="external-link button is-normal is-rounded is-dark"> <span>Supplementary</span></a></span> <span class="link-block"><a href=
+                  "https://github.com/xaf-cv/patch-your-matcher" target="_blank" class="external-link button is-normal is-rounded is-dark"> <span>Code</span></a></span>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
-    <!-- End teaser video -->
-
+      </div>
+    </section><!-- Teaser video-->
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay="" controls="" muted="" loop="" height="100%" preload="metadata"><source src="static/videos/pym_poster_video_render_compact.mp4" type=
+          "video/mp4"></video>
+          <h2 class="subtitle has-text-centered">TL;DR: Patch Your Matcher translates cross-modal inputs (infrared, depth, normals, events) into visible-range grayscale, enabling strong geometric
+          matching using frozen single-modality matchers such as ELoFTR, LightGlue and RoMA.</h2>
+        </div>
+      </div>
+    </section><!-- End teaser video -->
     <!-- Paper abstract -->
     <section class="section hero is-light">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-3">Abstract</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                            Matching between image modalities is a high-impact research area. Current state-of-the-art
-                            (SOTA) methods rely on extensive multi-million-scale training protocols, which demand
-                            significant computational resources. However, the learned cross-modal mapping remains
-                            largely opaque and locked within the trained matcher, with limited options for downstream
-                            use or transfer to other matchers.
-                        </p>
-                        <p>
-                            To enable such capabilities, we propose Patch Your Matcher (PYM), a highly adaptive method
-                            for leveraging pre-trained single-modality matchers for cross-modal matching by co-learning
-                            an explicit two-view geometrically consistent mapping. PYM learns image-to-image
-                            translations that map new modalities into the original matcher’s modality using a novel
-                            adversarial learning approach based on explicit evaluation of 6 DoF two-view correspondence
-                            plausibility.
-                        </p>
-                        <p>
-                            Trained with the semi-dense ELoFTR, our approach delivers substantially better cross-modal
-                            matching than classic I2I techniques, and recovers 97.05% of the matching precision of the
-                            extensively trained SOTA multi-modal MINIMA variant. PYM also significantly boosts
-                            cross-modal matching performance of uni-modal sparse LightGlue and dense RoMA matchers,
-                            demonstrating high transferability of learned mapping.
-                        </p>
-                    </div>
-                </div>
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>Matching between image modalities is a high-impact research area. Current state-of-the-art (SOTA) methods rely on extensive multi-million-scale training protocols, which demand
+              significant computational resources. However, the learned cross-modal mapping remains largely opaque and locked within the trained matcher, with limited options for downstream use or
+              transfer to other matchers.</p>
+              <p>To enable such capabilities, we propose Patch Your Matcher (PYM), a highly adaptive method for leveraging pre-trained single-modality matchers for cross-modal matching by co-learning
+              an explicit two-view geometrically consistent mapping. PYM learns image-to-image translations that map new modalities into the original matcher’s modality using a novel adversarial
+              learning approach based on explicit evaluation of 6 DoF two-view correspondence plausibility.</p>
+              <p>Trained with the semi-dense ELoFTR, our approach delivers substantially better cross-modal matching than classic I2I techniques, and recovers 97.05% of the matching precision of the
+              extensively trained SOTA multi-modal MINIMA variant. PYM also significantly boosts cross-modal matching performance of uni-modal sparse LightGlue and dense RoMA matchers, demonstrating
+              high transferability of learned mapping.</p>
             </div>
+          </div>
         </div>
-    </section>
-    <!-- End paper abstract -->
-
+      </div>
+    </section><!-- End paper abstract -->
     <!-- Paper poster -->
     <section class="hero is-small is-light">
-        <div class="hero-body">
-            <div class="container">
-                <h2 class="title">Poster</h2>
-                <iframe src="static/images/PYM_Poster_preview.jpg" width="100%" height="550">
-                </iframe>
-            </div>
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title">Poster</h2><iframe src="static/images/PYM_Poster_preview.jpg" width="100%" height="550"></iframe>
         </div>
-    </section>
-    <!--End paper poster -->
-
-
+      </div>
+    </section><!--End paper poster -->
     <!--BibTex citation -->
     <section class="section" id="BibTeX">
-        <div class="container is-max-desktop content">
-            <div class="bibtex-header">
-                <h2 class="title">BibTeX</h2>
-                <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-                    <i class="fas fa-copy"></i>
-                    <span class="copy-text">Copy</span>
-                </button>
-            </div>
-            <pre id="bibtex-code"><code>@article{pym_2026,
+      <div class="container is-max-desktop content">
+        <div class="bibtex-header">
+          <h2 class="title">BibTeX</h2><button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard"> <span class="copy-text">Copy</span></button>
+        </div>
+        <pre id="bibtex-code"><code>@article{pym_2026,
     author    = {Frolov, Anton and Rodehorst, Volker},
     title     = {Patch Your Matcher: Correspondence-Aware Image-to-Image Translation Unlocks Cross-Modal Matching via Single-Modality Priors},
     booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV)},
     month     = {March},
     year      = {2026},
 }</code></pre>
-        </div>
-    </section>
-    <!--End BibTex citation -->
-
-
+      </div>
+    </section><!--End BibTex citation -->
     <footer class="footer">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-8">
-                    <div class="content">
-
-                        <p>
-                            This page was built using the <a
-                                href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic
-                            Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io"
-                                                                                    target="_blank">Nerfies</a> project
-                            page.
-                            You are free to borrow the source code of this website, we just ask that you link back to
-                            this page in the footer. <br> This website is licensed under a <a rel="license"
-                                                                                              href="http://creativecommons.org/licenses/by-sa/4.0/"
-                                                                                              target="_blank">Creative
-                            Commons Attribution-ShareAlike 4.0 International License</a>.
-                        </p>
-
-                    </div>
-                </div>
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from
+              the&nbsp;<a href="https://nerfies.github.io" target="_blank">Nerfies</a>&nbsp;project page. You are free to borrow the source code of this website, we just ask that you link back to
+              this page in the footer.<br>
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International
+              License</a>.</p>
             </div>
+          </div>
         </div>
-    </footer>
-
-    <!-- Default Statcounter code for Patch Your Matcher
+      </div>
+    </footer><!-- Default Statcounter code for Patch Your Matcher
     https://xaf-cv.github.io/pym/ -->
     <script type="text/javascript">
         var sc_project = 13206375;
         var sc_invisible = 1;
         var sc_security = "5124b518";
-    </script>
-    <script type="text/javascript"
-            src="https://www.statcounter.com/counter/counter.js"
-            async></script>
-    <noscript>
-        <div class="statcounter"><a title="Web Analytics"
-                                    href="https://statcounter.com/" target="_blank"><img
-                class="statcounter"
-                src="https://c.statcounter.com/13206375/0/5124b518/1/"
-                alt="Web Analytics"
-                referrerPolicy="no-referrer-when-downgrade"></a></div>
-    </noscript>
-    <!-- End of Statcounter Code -->
-
+    </script> 
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script> <noscript>
+    <div class="statcounter">
+      <a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/13206375/0/5124b518/1/" alt="Web Analytics" referrerpolicy=
+      "no-referrer-when-downgrade"></a>
+    </div></noscript> <!-- End of Statcounter Code -->
+  </main>
 </body>
 </html>
